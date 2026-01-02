@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap');
+
+:root {
+  /* Premium Bakery Palette */
+  --primary: #8B4513; /* SaddleBrown */
+  --primary-light: #A0522D; /* Sienna */
+  --primary-dark: #3E2723; /* Very dark brown */
+  --accent: #D4A373; /* Tan/Gold */
+  --accent-light: #E9C46A;
+  --bg-color: #FDFBF7; /* Cream White */
+  --surface: #FFFFFF;
+  --text-main: #2D3436;
+  --text-muted: #636E72;
+  --border: #E0E0E0;
+  
+  /* Status Colors */
+  --success: #27AE60;
+  --warning: #F39C12;
+  --danger: #E74C3C;
+  --info: #3498DB;
+
+  /* Typography */
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+
+  /* Spacing & Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --container-width: 1200px;
+  
+  /* Shadows & Effects */
+  --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+  --shadow-md: 0 8px 16px rgba(139, 69, 19, 0.08); /* Warm shadow */
+  --shadow-lg: 0 16px 32px rgba(139, 69, 19, 0.12);
+  --glass: rgba(255, 255, 255, 0.9);
+  --glass-border: 1px solid rgba(255, 255, 255, 1);
+  --backdrop: blur(12px);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
+  background-image: 
+    radial-gradient(at 10% 10%, rgba(212, 163, 115, 0.1) 0px, transparent 50%),
+    radial-gradient(at 90% 90%, rgba(139, 69, 19, 0.05) 0px, transparent 50%);
+  background-attachment: fixed;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--primary-dark);
+  margin-top: 0;
+  font-weight: 700;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: var(--primary-light);
+}
+
+/* Glassmorphism Card */
+.card, .dashboard-card, .invoice-form, .item-entry-form {
+  background: var(--glass);
+  backdrop-filter: var(--backdrop);
+  -webkit-backdrop-filter: var(--backdrop);
+  border: var(--glass-border);
+  box-shadow: var(--shadow-md);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* Buttons */
+button, .btn {
+  font-family: var(--font-body);
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 1.5rem;
+  transition: all 0.2s ease;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(139, 69, 19, 0.2);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(139, 69, 19, 0.3);
+}
+
+.btn-secondary {
+  background: white;
+  border: 1px solid var(--border);
+  color: var(--text-main);
+}
+
+.btn-secondary:hover {
+  background: #F8F9FA;
+  border-color: var(--primary-light);
+  color: var(--primary);
+}
+
+.btn-danger {
+  background: #FFF5F5;
+  color: var(--danger);
+  border: 1px solid rgba(231, 76, 60, 0.2);
+}
+
+.btn-danger:hover {
+  background: var(--danger);
+  color: white;
+}
+
+.btn-sm {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.85rem;
+}
+
+/* Form Elements */
+input, select, textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  background: white;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(212, 163, 115, 0.15);
+}
+
+label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: var(--text-main);
+  font-size: 0.9rem;
+}
+
+/* Responsive Utilities */
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --radius-md: 16px; /* Larger radius for mobile feel */
+  }
+  
+  .card {
+    padding: 1.5rem;
+  }
+  
+  /* Better touch targets */
+  button, input, select {
+    min-height: 48px; 
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+/* Utility to ensure responsiveness */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Print Styles */
+@media print {
+  @page {
+    margin: 0.5cm;
+    size: auto;
+  }
+  
+  body {
+    background: white;
+    color: black;
+    background-image: none;
+  }
+  
+  .header, 
+  .form-actions, 
+  .dashboard-cards, 
+  .no-print,
+  button { 
+    display: none !important; 
+  }
+  
+  .card, 
+  .invoice-form, 
+  .main-content,
+  .invoice-preview { 
+    box-shadow: none !important; 
+    border: none !important; 
+    padding: 0 !important; 
+    margin: 0 !important; 
+    width: 100% !important; 
+    max-width: none !important; 
+  }
+  
+  .invoice-preview {
+    font-size: 12px;
+  }
+}

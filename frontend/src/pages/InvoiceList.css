@@ -1,0 +1,265 @@
+.invoice-list {
+  padding: 2rem 0;
+}
+
+.invoice-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.invoice-list-header h2 {
+  margin: 0;
+  color: #8B4513;
+  font-size: 2rem;
+}
+
+.filters {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: #FFF8F0;
+  border-radius: 8px;
+  border: 1px solid #D2B48C;
+}
+
+.filter-select {
+  margin-left: 0.5rem;
+  padding: 0.75rem;
+  border: 2px solid #D2B48C;
+  border-radius: 6px;
+  font-size: 1rem;
+  background: white;
+  min-height: 44px; /* Touch-friendly */
+  cursor: pointer;
+}
+
+.filter-select:focus {
+  outline: none;
+  border-color: #8B4513;
+}
+
+.invoices-table-container {
+  overflow-x: auto;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid #D2B48C;
+  -webkit-overflow-scrolling: touch;
+}
+
+.invoices-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px; /* Minimum width for table */
+}
+
+.invoices-table thead {
+  background-color: #8B4513;
+  color: white;
+}
+
+.invoices-table th,
+.invoices-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #E0D5C7;
+}
+
+.invoices-table tbody tr:hover {
+  background-color: #FFF8F0;
+}
+
+.invoices-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.amount {
+  font-weight: 600;
+  color: #3E2723;
+}
+
+.status-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 0.85rem;
+  text-transform: capitalize;
+}
+
+.status-badge.status-draft {
+  background-color: #FFF9C4;
+  color: #F57F17;
+}
+
+.status-badge.status-final {
+  background-color: #C8E6C9;
+  color: #2E7D32;
+}
+
+.payment-status-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 0.85rem;
+}
+
+.payment-status-badge.status-paid {
+  background-color: #C8E6C9;
+  color: #2E7D32;
+}
+
+.payment-status-badge.status-partially-paid {
+  background-color: #FFF9C4;
+  color: #F57F17;
+}
+
+.payment-status-badge.status-due {
+  background-color: #FFCDD2;
+  color: #C62828;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-block;
+  min-height: 44px; /* Touch-friendly */
+  min-width: 100px;
+}
+
+.btn-primary {
+  background-color: #8B4513;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #654321;
+}
+
+.btn-sm {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  min-height: 36px;
+  min-width: 80px;
+}
+
+.btn-view {
+  background-color: #A0826D;
+  color: white;
+}
+
+.btn-view:hover {
+  background-color: #8B6F5E;
+}
+
+.no-invoices {
+  text-align: center;
+  padding: 3rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid #D2B48C;
+}
+
+.no-invoices p {
+  margin-bottom: 1.5rem;
+  color: #5D4037;
+  font-size: 1.1rem;
+}
+
+.loading,
+.error-message {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.1rem;
+}
+
+.error-message {
+  color: #C62828;
+  background: #FFEBEE;
+  border-radius: 8px;
+  border: 1px solid #FFCDD2;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .invoice-list {
+    padding: 1rem 0;
+  }
+
+  .invoice-list-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .invoice-list-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .filters {
+    width: 100%;
+  }
+
+  .filter-select {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 0.5rem;
+  }
+
+  .invoices-table {
+    font-size: 0.9rem;
+    min-width: 700px;
+  }
+
+  .invoices-table th,
+  .invoices-table td {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .invoices-table th:last-child,
+  .invoices-table td:last-child {
+    position: sticky;
+    right: 0;
+    background: white;
+    box-shadow: -2px 0 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .invoices-table tbody tr:hover td:last-child {
+    background: #FFF8F0;
+  }
+
+  .btn {
+    width: 100%;
+    min-width: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .invoice-list-header h2 {
+    font-size: 1.25rem;
+  }
+
+  .invoices-table {
+    font-size: 0.85rem;
+    min-width: 600px;
+  }
+
+  .invoices-table th,
+  .invoices-table td {
+    padding: 0.5rem 0.4rem;
+  }
+
+  .status-badge,
+  .payment-status-badge {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.5rem;
+  }
+}
