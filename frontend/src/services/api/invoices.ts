@@ -32,3 +32,4 @@ export const invoiceApi = {
     await apiClient.delete(`/invoices/${id}`);
   },
 };
+

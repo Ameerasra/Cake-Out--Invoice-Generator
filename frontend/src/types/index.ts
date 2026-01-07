@@ -67,3 +67,4 @@ export interface InvoiceFormData {
   delivery_address?: string;
   status?: 'draft' | 'final';
 }
+
