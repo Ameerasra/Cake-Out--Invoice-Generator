@@ -1,4 +1,4 @@
-export const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://Invoicegenerator-Backend.railpack.app/api';
+export const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://invoicegenerator-backend-production.up.railway.app/api';
 
 
 
