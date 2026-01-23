@@ -11,11 +11,7 @@ const InvoiceList: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [statusFilter, setStatusFilter] = useState<string>('');
 
-  useEffect(() => {
-    loadInvoices();
-  }, [statusFilter]);
-
-  const loadInvoices = async () => {
+  const loadInvoices = React.useCallback(async () => {
     setIsLoading(true);
     setError(null);
     try {
@@ -26,7 +22,11 @@ const InvoiceList: React.FC = () => {
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [statusFilter]);
+
+  useEffect(() => {
+    loadInvoices();
+  }, [loadInvoices]);
 
   const formatCurrency = (amount: number | string | null | undefined) => {
     const numericAmount = typeof amount === 'string' ? parseFloat(amount) : Number(amount);

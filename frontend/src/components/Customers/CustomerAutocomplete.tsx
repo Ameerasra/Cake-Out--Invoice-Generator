@@ -31,7 +31,7 @@ const CustomerAutocomplete: React.FC<CustomerAutocompleteProps> = ({
     if (inputValue !== undefined && inputValue !== searchTerm) {
       setSearchTerm(inputValue);
     }
-  }, [inputValue]);
+  }, [inputValue, searchTerm]);
 
   // Debounced search
   const debouncedSearch = useCallback((term: string) => {

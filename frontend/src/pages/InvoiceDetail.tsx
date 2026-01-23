@@ -12,13 +12,7 @@ const InvoiceDetail: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    if (id) {
-      loadInvoice();
-    }
-  }, [id]);
-
-  const loadInvoice = async () => {
+  const loadInvoice = React.useCallback(async () => {
     setIsLoading(true);
     setError(null);
     try {
@@ -29,7 +23,13 @@ const InvoiceDetail: React.FC = () => {
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [id]);
+
+  useEffect(() => {
+    if (id) {
+      loadInvoice();
+    }
+  }, [id, loadInvoice]);
 
   const handlePrint = () => {
     window.print();
